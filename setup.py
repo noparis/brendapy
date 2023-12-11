@@ -1,7 +1,17 @@
 #!/usr/bin/env python
 """Setup script."""
-from setuptools import setup  # type: ignore
+from setuptools import setup, find_packages
 
-
-if __name__ == "__main__":
-    setup(version="0.5.0")
+setup(
+    name='brendapy',
+    version='0.5.0',
+    description='Brenda parser in python',
+    license='LGPL-3.0',
+    author='matthiaskoenig',
+    author_email='konigmatt@googlemail.com',
+    packages=find_packages(),
+    include_package_data=True,
+    keywords=['brendapy'],
+    url='https://github.com/matthiaskoenig/brendapy',
+    classifiers=['',]
+)
