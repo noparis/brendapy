@@ -9,6 +9,7 @@ setup(
     license='LGPL-3.0',
     author='matthiaskoenig',
     author_email='konigmatt@googlemail.com',
+    setup_requires=[],
     packages=find_packages(),
     include_package_data=True,
     keywords=['brendapy'],
