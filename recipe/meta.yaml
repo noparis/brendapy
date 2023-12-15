@@ -22,10 +22,10 @@ build:
 
 requirements:
   host:
-    - python {{ python }}
+    - python>=3.11
     - pip
   run:
-    - python {{ python }}
+    - python>=3.11
     - depinfo>=0.1.7
     #- pymetadata>=0.2.10
     - rich
