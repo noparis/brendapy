@@ -1,5 +1,4 @@
 {% set name = "brendapy" %}
-#{% set data = load_setup_py_data() %}
 {% set version = "0.5.0" %}
 
 package:
@@ -16,18 +15,17 @@ source:
     folder: brendapy/ontologies/pymetadata
 
 build:
-  noarch: python
+  #noarch: python
   number: 0
-  script: {{ PYTHON }} -m pip install -vv .
+  script: {{ PYTHON }} -m pip install --no-deps --ignore-installed -vv .
 
 requirements:
   host:
-    - python>=3.11
+    - python
     - pip
   run:
     - python>=3.11
     - depinfo>=0.1.7
-    #- pymetadata>=0.2.10
     - rich
     - requests
     - pandas>=1.4.0
@@ -37,20 +35,18 @@ requirements:
 test:
   source_files:
     - tests
-  imports:
-    - {{ name|lower }}
   requires:
     - pytest
+    - pytest-mock
+  imports:
+    - brendapy
   commands:
-    - python -m {{ name|lower }}.brendapy --help
-    - python -m pytest tests
+    - python -m brendapy --help
+    - pytest tests -v
 
 about:
   home: https://github.com/matthiaskoenig/brendapy
-  #summary: {{ data['description'] }}
-  #license: {{ data.get('license') }}
   license_file: LICENSE
-  #description: {{ data['long_description'] }}
 
 extra:
   recipe-maintainers:
